@@ -12,11 +12,11 @@ android {
     compileSdkVersion 33
 
     defaultConfig {
-        applicationId "com.simplemobiletools.camera"
+        applicationId "com.jtcstudios.camera"
         minSdkVersion 29
         targetSdkVersion 33
-        versionCode 78
-        versionName "5.4.0"
+        versionCode 1
+        versionName "1.0.0"
         setProperty("archivesBaseName", "camera")
         vectorDrawables.useSupportLibrary = true
     }

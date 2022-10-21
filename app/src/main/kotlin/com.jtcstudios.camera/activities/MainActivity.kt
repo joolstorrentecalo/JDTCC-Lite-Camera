@@ -80,7 +80,6 @@ class MainActivity : SimpleActivity(), PhotoProcessor.MediaSavedListener, Camera
         initVariables()
         tryInitCamera()
         supportActionBar?.hide()
-        checkWhatsNewDialog()
         setupOrientationEventListener()
 
         val windowInsetsController = ViewCompat.getWindowInsetsController(window.decorView)
@@ -361,8 +360,7 @@ class MainActivity : SimpleActivity(), PhotoProcessor.MediaSavedListener, Camera
         toggle_flash.setOnClickListener { toggleFlash() }
         shutter.setOnClickListener { shutterPressed() }
 
-        settings.setShadowIcon(R.drawable.ic_settings_vector)
-        settings.setOnClickListener { launchSettings() }
+
 
         change_resolution.setOnClickListener { mPreview?.showChangeResolution() }
 
@@ -431,10 +429,7 @@ class MainActivity : SimpleActivity(), PhotoProcessor.MediaSavedListener, Camera
         }
     }
 
-    private fun launchSettings() {
-        val intent = Intent(applicationContext, SettingsActivity::class.java)
-        startActivity(intent)
-    }
+
 
     private fun handleTogglePhotoVideo() {
         handlePermission(PERMISSION_RECORD_AUDIO) {
@@ -840,18 +835,6 @@ class MainActivity : SimpleActivity(), PhotoProcessor.MediaSavedListener, Camera
         if (isImageCaptureIntent()) {
             setResult(Activity.RESULT_OK)
             finish()
-        }
-    }
-
-    private fun checkWhatsNewDialog() {
-        arrayListOf<Release>().apply {
-            add(Release(33, R.string.release_33))
-            add(Release(35, R.string.release_35))
-            add(Release(39, R.string.release_39))
-            add(Release(44, R.string.release_44))
-            add(Release(46, R.string.release_46))
-            add(Release(52, R.string.release_52))
-            checkWhatsNew(this, BuildConfig.VERSION_CODE)
         }
     }
 }
